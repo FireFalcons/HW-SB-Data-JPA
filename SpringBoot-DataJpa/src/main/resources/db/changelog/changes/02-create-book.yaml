@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-sample-books
+      author: Andriy
+      changes:
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: "Clean Code"
+              - column:
+                  name: author
+                  value: "Robert C. Martin"
+              - column:
+                  name: isbn
+                  value: "9780132350884"
+              - column:
+                  name: price
+                  valueNumeric: 45.99
+              - column:
+                  name: description
+                  value: "A Handbook of Agile Software Craftsmanship"
+              - column:
+                  name: cover_image
+                  value: "clean_code.jpg"
+              - column:
+                  name: deleted
+                  valueNumeric: 0
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: "Effective Java"
+              - column:
+                  name: author
+                  value: "Joshua Bloch"
+              - column:
+                  name: isbn
+                  value: "9780134685991"
+              - column:
+                  name: price
+                  valueNumeric: 54.99
+              - column:
+                  name: description
+                  value: "Best practices for Java platform programming"
+              - column:
+                  name: cover_image
+                  value: "effective_java.jpg"
+              - column:
+                  name: deleted
+                  valueNumeric: 0
