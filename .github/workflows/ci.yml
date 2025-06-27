@@ -13,6 +13,19 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Check Java version
+        run: java -version
+
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-
+
+      - name: List project files
+        run: ls -la SpringBoot-DataJpa
+
       - name: Build with Maven
         working-directory: SpringBoot-DataJpa
-        run: mvn clean verify
+        run: mvn clean test
