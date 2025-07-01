@@ -1,27 +1,27 @@
-package com.example.springbootdatajpa.controller;
+package com.bookstore.controller;
 
-import com.example.springbootdatajpa.dto.BookDto;
-import com.example.springbootdatajpa.service.BookService;
+import com.bookstore.dto.BookDto;
+import com.bookstore.dto.CreateBookRequestDto;
+import com.bookstore.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/books")
+@RequestMapping("/books")
 public class BookController {
     private final BookService bookService;
 
     @PostMapping
-    public BookDto save(@RequestBody BookDto bookDto) {
-        return bookService.save(bookDto);
+    public BookDto save(@RequestBody CreateBookRequestDto bookRequestDto) {
+        return bookService.save(bookRequestDto);
     }
 
     @PutMapping("/{id}")
-    public BookDto put(@PathVariable Long id, @RequestBody BookDto bookDto) {
-        return bookService.put(id, bookDto);
+    public BookDto put(@PathVariable Long id, @RequestBody CreateBookRequestDto bookRequestDto) {
+        return bookService.put(id, bookRequestDto);
     }
 
     @GetMapping

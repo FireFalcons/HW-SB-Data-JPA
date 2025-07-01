@@ -1,12 +1,10 @@
-package com.example.springbootdatajpa.dto;
+package com.bookstore.dto;
 
 import lombok.Data;
-
 import java.math.BigDecimal;
 
 @Data
-public class BookDto {
-    private Long id;
+public class CreateBookRequestDto {
     private String title;
     private String author;
     private String isbn;
